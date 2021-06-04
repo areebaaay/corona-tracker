@@ -4,7 +4,7 @@ import Chart from './components/charts/Chart';
 import CountryPicker from './components/countryPicker/CountryPicker';
 import styles from './App.module.css';
 import { fetchData } from './api';
-import coronaImage from './images/corona.png';
+import coronaImage from './images/c1.png';
 
 const App = () => {
   const [data, setData] = useState({});
