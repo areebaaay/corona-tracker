@@ -3,10 +3,11 @@ import { Card, CardContent, Typography, Grid } from '@material-ui/core';
 import styles from './Cards.module.css';
 import CountUp from 'react-countup';
 import cx from 'classnames';
+import Preloader from '../layout/Preloader';
 
 const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   if (!confirmed) {
-    return 'Loading';
+    return <Preloader />;
   }
   return (
     <div className={styles.container}>
@@ -18,9 +19,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
           md={3}
           className={cx(styles.card, styles.infected)}>
           <CardContent>
-            <Typography color="textSecondary" gutterBottom>
-              Infected
-            </Typography>
+            <Typography gutterBottom>Infected</Typography>
             <Typography variant="h5">
               <CountUp
                 start={0}
@@ -29,9 +28,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
                 separator=","
               />
             </Typography>
-            <Typography color="typeSecondary">
-              {new Date(lastUpdate).toDateString()}
-            </Typography>
+            <Typography>{new Date(lastUpdate).toDateString()}</Typography>
             <Typography variant="body2">
               Number of active cases of Covid-19
             </Typography>
@@ -45,9 +42,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
           md={3}
           className={cx(styles.card, styles.recovered)}>
           <CardContent>
-            <Typography color="textSecondary" gutterBottom>
-              Recovered
-            </Typography>
+            <Typography gutterBottom>Recovered</Typography>
             <Typography variant="h5">
               <CountUp
                 start={0}
@@ -56,9 +51,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
                 separator=","
               />
             </Typography>
-            <Typography color="typeSecondary">
-              {new Date(lastUpdate).toDateString()}
-            </Typography>
+            <Typography>{new Date(lastUpdate).toDateString()}</Typography>
             <Typography variant="body2">
               Number of recovered cases of Covid-19
             </Typography>
@@ -72,9 +65,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
           md={3}
           className={cx(styles.card, styles.deaths)}>
           <CardContent>
-            <Typography color="textSecondary" gutterBottom>
-              Deaths
-            </Typography>
+            <Typography gutterBottom>Deaths</Typography>
             <Typography variant="h5">
               <CountUp
                 start={0}
@@ -83,9 +74,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
                 separator=","
               />
             </Typography>
-            <Typography color="typeSecondary">
-              {new Date(lastUpdate).toDateString()}
-            </Typography>
+            <Typography>{new Date(lastUpdate).toDateString()}</Typography>
             <Typography variant="body2">
               Number of deaths cases from Covid-19
             </Typography>
